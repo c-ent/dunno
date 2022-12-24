@@ -1,10 +1,24 @@
+document.onreadystatechange = function() {
+  if (document.readyState !== "complete") {
+      document.querySelector(
+        "body").style.visibility = "hidden";
+      document.querySelector(
+        "#loading").style.visibility = "visible";
+  } else {
+      document.querySelector(
+        "#loading").style.display = "none";
+      document.querySelector(
+        "body").style.visibility = "visible";
+        
+  }
+};
 
-document.addEventListener("DOMContentLoaded", function() {
-  var audio = new Audio('src/snd/chrimstastune.mp3');
+var audio = new Audio('src/snd/chrimstastune.mp3');
 audio.play();
 audio.loop = true
-});
+
 var Snow = {
+  
     el: "#snow", 
     density: 10000, // higher = fewer bits
     maxHSpeed: 5, // How much do you want them to move horizontally
@@ -70,3 +84,4 @@ var Snow = {
   
 
   var confetti = Snow.init();
+
